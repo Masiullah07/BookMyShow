@@ -1,14 +1,23 @@
-from django.urls import path
-from . import views
+"""
+URL configuration for bmsproject project.
 
-urlpatterns=[
-    path('bmsapp/',views.bmsapp,name='bmsapp'),
-    path('bmsapp/myTicket',views.myTicket,name='myTicket'),
-    path('bmsapp/About',views.About,name='About'),
-    path('bmsapp/Funalot',views.Funalot,name='Funalot'),
-    path('bmsapp/Costsavings', views.Costsavings, name='Costsavings'),
-    path('bmsapp/contactUs',views.contactUs,name='contactUs'),
-    path('bmsapp/saveMovieData',views.saveMovieData,name='saveMovieData'),
-    path('bmsapp/updateBooking/<int:id>',views.updateBooking,name='updateBooking'),
-    path('bmsapp/updateBooking/updateBookingData/<int:id>', views.updateBookingData, name='updateBookingData'),
-    path('bmsapp/deleteBooking/<int:id>',views.deleteBooking,name='deleteBooking')]
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path("",include('bmsapp.urls')),
+    path('admin/', admin.site.urls),
+]
